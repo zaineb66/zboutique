@@ -1,0 +1,77 @@
+﻿@using PROJECT.Models
+@model List<product>
+@{
+    ViewBag.Title = "Shopping";
+    Layout = "~/Views/Shared/menu_shared.cshtml";
+}
+
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------------->
+
+<div class="container">
+
+    <header id="header">
+        <div class="row">
+            <div class="span4">
+                <a class="logo" href="index.html">
+                    <span></span>
+                    <img src="~/images/logo-social.png" width="350" height="100" alt="">
+                </a>
+            </div>
+            <hr />
+
+        </div>
+    </header>
+
+
+    <!--
+    Body Section
+    -->
+    <div class="row">
+        <div class="span12">
+
+            <div class="well well-small">
+
+                <hr class="soften" />
+
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>Remove</th>
+                                <th>Name</th>
+                                <th>Image</th>
+                                <th>Quantity</th>
+                                <th>Price per unit</th>
+                                <th>total</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var val in @Model)
+                            {
+                                string url = "~/Files/" + val.Id + "_0.jpg";
+                                <tr><td><a href="/Home/RemoveItem/@val.Id" class="btn btn-success">DROP</a> </td><td>@val.name</td><td><img src=@Url.Content(url) style="width:100px"></td><td>@val.quantity</td><td>@val.price</td><td>@(@val.price * @val.quantity)</td></tr>
+                            }
+
+                            <tr><td>Total Amount</td><td></td><td></td><td></td><td></td><td>@ViewBag.total</td></tr>
+                        </tbody>
+                    </table>
+
+                    @if (ViewBag.done == "orderd")
+                    {
+                        <h2 style="color:#00ff21">Order Has Been Submitted</h2>
+                    }
+
+                    <a href="/Home/Index" class="shopBtn btn-large"> Continue Shopping </a>
+                    <a href="/Home/Order" class="shopBtn btn-large pull-right">Next </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

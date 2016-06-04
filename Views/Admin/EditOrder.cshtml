@@ -1,0 +1,47 @@
+﻿@model PROJECT.Models.order
+
+@{
+    ViewBag.Title = "EditOrder";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+
+
+<div id="page-wrapper" style="margin-left :10%">
+    <div class="container">
+        <h1>Edit order</h1>
+        <div>
+            @using (Html.BeginForm("Edit_Order", "Order", FormMethod.Post))
+            {
+
+                @Html.HiddenFor(m => m.Id)
+                @Html.HiddenFor(m => m.total)
+                @Html.HiddenFor(m => m.cust_id)
+                @Html.HiddenFor(m => m.dilivery_ad)
+                @*@Html.LabelFor(m => m.cust_id)
+                    @Html.EditorFor(m => m.cust_id)
+                    <br/><br/>
+                    @Html.LabelFor(m => m.dilivery_ad)
+                    @Html.EditorFor(m => m.dilivery_ad)
+                    <br/><br/>*@
+                @Html.LabelFor(m => m.date)
+                @Html.EditorFor(m => m.date)
+                <br /><br />
+                @Html.LabelFor(m => m.payment_type)
+                @Html.EditorFor(m => m.payment_type)
+
+                <br /><br />
+                @Html.LabelFor(m => m.status)
+                @Html.EditorFor(m => m.status)
+                <br /><br />
+                <button class="btn btn-primary" type="submit"> Save</button>
+            }
+        </div>
+
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>"
+
+
+

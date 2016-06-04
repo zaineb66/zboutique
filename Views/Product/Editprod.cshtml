@@ -1,0 +1,39 @@
+﻿@model PROJECT.Models.product
+@{
+    ViewBag.Title = "Editprod";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+
+
+<div id="page-wrapper" style="margin-left :10%">
+    <div class="container">
+        <div>
+            @using (Html.BeginForm("Edit_Product", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.HiddenFor(m => m.Id)
+                @Html.LabelFor(m => m.cat_id)
+                @Html.EditorFor(m => m.cat_id)
+                <br /><br />
+                @Html.LabelFor(m => m.name)
+                @Html.EditorFor(m => m.name)
+                <br /><br />
+                @Html.LabelFor(m => m.desc)
+                @Html.EditorFor(m => m.desc)
+                <br /><br />
+                @Html.LabelFor(m => m.image)
+                @Html.TextBoxFor(m => m.image, new { type = "file" })
+                @Html.ValidationMessageFor(m => m.image)
+
+                <br /><br />
+                @Html.LabelFor(m => m.price)
+                @Html.EditorFor(m => m.price)
+
+                <button class="btn btn-primary" type="submit"> Save</button>
+            }
+        </div>
+
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>

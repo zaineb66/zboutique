@@ -1,0 +1,79 @@
+﻿@model PROJECT.Models.customer
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/menu_shared.cshtml";
+}
+
+
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="container">
+
+        <header id="header">
+            <div class="row">
+                <div class="span4">
+                    <a class="logo" href="index.html">
+                        <span></span>
+                        <img src="~/images/logo-social.png" width="350" height="100" alt="">
+                    </a>
+                </div>
+                <hr></hr>
+               
+            </div>
+        </header>
+
+
+        <div class="span9">
+
+            <h1> Login</h1>
+            <hr class="soft" />
+
+            <div class="row">
+                <div class="span4">
+                    <div class="well">
+                        <h2>CREATE YOUR NEW ACCOUNT</h2><br />
+                         <br /><br />
+                        
+                            <div class="controls">
+                                <p> </p>
+                                <a href="/Home/Register" class ="shopBtn btn-large">Create Your Account</a>
+                            </div>
+                      
+                    </div>
+                </div>
+                <div class="span1"> &nbsp;</div>
+                <div class="span4">
+                    <div class="well">
+                        <h2>ALREADY REGISTERED ?</h2>
+                        <form action="/Home/LoginApprove">
+                            <div class="control-group">
+                                <label class="control-label" for="inputEmail">Username</label>
+                                <div class="controls">
+                                    <input class="span3" type="text" name="user" placeholder="Username" required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputPassword">Password</label>
+                                <div class="controls">
+                                    <input type="password" name="pass" class="span3" placeholder="Password" required>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <p> </p>
+                                    <button type="submit" class="defaultBtn">Sign in</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

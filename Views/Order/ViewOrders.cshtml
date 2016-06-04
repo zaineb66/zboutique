@@ -1,0 +1,45 @@
+﻿@using PROJECT.Models
+
+@{
+
+    ViewBag.Title = "ViewOrders";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+<div id="page-wrapper" style="margin-left :10%">
+    <div class="container">
+        <h1>Orders</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Customer Id</th>
+                        <th>Dilevery Address</th>
+                        <th>Payment type</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Total</th>
+
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @foreach (order i in Model)
+                    {
+                        <tr><td>@i.Id</td><td>@i.cust_id</td><td>@i.dilivery_ad</td><td>@i.payment_type</td><td>@i.date</td><td>@i.status</td><td>@i.total</td><td>@Html.ActionLink("Edit", "EditOrder", new { id = i.Id })</td></tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

@@ -1,0 +1,41 @@
+﻿
+@using PROJECT.Models
+@{
+    ViewBag.Title = "ViewProducts";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+<div id="page-wrapper" style="margin-left :10%">
+    <div class="container">
+        <h1>Dresses</h1>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category no</th>
+                        <th>Name</th>
+                        <th>Descripton</th>
+                        <th>Price</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (product i in Model)
+                    {
+                        <tr><td>@i.Id</td><td>@i.cat_id</td><td>@i.name</td><td>@i.desc</td><td>@i.price</td><td>@Html.ActionLink("Edit", "Editprod", new { id=i.Id})</td><td>@Html.ActionLink("Delete", "Deleteprod", new { id=i.Id})</td></tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->
+

@@ -1,0 +1,30 @@
+﻿@model PROJECT.Models.category
+@{
+    ViewBag.Title = "EditCat";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+
+
+<div id="page-wrapper" style="margin-left :10%">
+    <div class="container">
+        <div>
+            @using (Html.BeginForm("Edit_Cat", "Category", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.Id)
+
+                @Html.LabelFor(m => m.name)
+                @Html.EditorFor(m => m.name)
+                <br /><br />
+                @Html.LabelFor(m => m.desc)
+                @Html.EditorFor(m => m.desc)
+
+                <br />
+                <button class="btn btn-primary" type="submit"> Save</button>
+            }
+        </div>
+
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>

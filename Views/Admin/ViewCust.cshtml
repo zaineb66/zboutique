@@ -1,0 +1,40 @@
+﻿@using PROJECT.Models
+@{
+    ViewBag.Title = "ViewCustomers";
+    Layout = "~/Views/Shared/admin_share.cshtml";
+}
+
+
+<div id="page-wrapper" style="margin-left :10%">
+    <div class="container">
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Password</th>
+                        <th>Address</th>
+                        <th>Post Code</th>
+                        <th>Email</th>
+                        <th>Phone No</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (customer i in Model)
+                    {
+                        <tr><td>@i.Id</td><td>@i.name</td><td>@i.password</td><td>@i.address</td><td>@i.postcode</td><td>@i.email</td><td>@i.phone</td></tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /#page-wrapper -->

@@ -1,0 +1,65 @@
+﻿@model PROJECT.Models.product
+@{
+    ViewBag.Title = "Product_Detail";
+    Layout = "~/Views/Shared/menu_shared.cshtml";
+}
+
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="container">
+
+        <header id="header">
+            <div class="row">
+                <div class="span4">
+                    <a class="logo" href="index.html">
+                        <img src="~/images/logo-social.png" width="350" height="100" alt="">
+                    </a>
+                </div>
+            </div>
+
+        </header>
+    </div>
+
+    <div class="well well-small">
+        <center>
+            <div class="row-fluid">
+
+                <div>
+                    <img src="~/Files/@Model.image" />
+                </div>
+                <div class="span7">
+                    <h1>@Model.name [RS: @Model.price]</h1>
+                    <hr class="soft" />
+
+                    <form action="/Home/AddToCart/" class="qtyFrm frm pull-left">
+                        @Html.HiddenFor(m => m.Id)
+                        @Html.HiddenFor(m => m.name)
+                        @Html.HiddenFor(m => m.cat_id)
+                        @Html.HiddenFor(m => m.price)
+                        @Html.HiddenFor(m => m.desc)
+                        @Html.HiddenFor(m => m.image)
+                        <div class="control-group">
+                            <div class="controls">
+                                <input name="quan" type="number" min="1" class="span6" placeholder="Qty. ">
+                            </div>
+                        </div>
+                        <br /><br />
+                        <p style="font-size:18px">
+                            @Model.desc
+                        <p>
+                            <br />
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
+                    </form>
+
+
+                </div>
+
+            </div>
+        </center>
+    </div>
+
+
+</body>
+</html>
+
